@@ -1,6 +1,8 @@
 ﻿namespace Swensen.Unquote
 open System
+#if !PORTABLE
 open System.Runtime.Serialization
+#endif
 //see http://stackoverflow.com/questions/1619567/f-type-inheritance
 //see http://stackoverflow.com/questions/94488/what-is-the-correct-way-to-make-a-custom-net-exception-serializable
 //see http://msdn.microsoft.com/en-us/library/ms229064.aspx

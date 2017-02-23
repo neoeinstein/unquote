@@ -1,7 +1,9 @@
 ﻿namespace Swensen.Unquote
 
 open System
+#if !PORTABLE
 open System.Runtime.Serialization
+#endif
 
 ///Exception used to indicate an exception captured during reduction (typically not raised itself).
 #if PORTABLE

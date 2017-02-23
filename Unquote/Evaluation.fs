@@ -264,7 +264,8 @@ let eval env expr =
             op (eval env lhs) (eval env rhs)
         | UnaryOp(op, arg) | CheckedUnaryOp(op, arg) -> 
             op (eval env arg)
-        | P.Quote(captured) -> 
+        | P.QuoteTyped(captured)
+        | P.QuoteRaw(captured) -> 
         //todo not sure if this PORTABLE fallback is required anymore (was for Silverlight 4, but might not be for Portable Profile 259)
 #if PORTABLE
             failwithPatternNotSupported "Quote (in Portable Profile 259)" expr

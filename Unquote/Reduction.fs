@@ -38,7 +38,7 @@ let evalValue env (expr:Expr) =
 //note: only immutable expressions should be considered reduced
 let rec isReduced = function
     //| P.Var v -> env |> List.exists (fun (name,_) -> name = v.Name)
-    | P.Value _ | P.Lambda _ | DP.Unit | P.Quote _ -> true
+    | P.Value _ | P.Lambda _ | DP.Unit | P.QuoteTyped _ | P.QuoteRaw _ -> true
     | P.NewUnionCase(_,args) | P.NewTuple(args) | P.NewArray(_,args) | EP.IncompleteLambdaCall(_,_,args) when args |> allReduced -> true //might need a separate case for instance incompletelambda calls so that the instance must be reduced too
     | P.Coerce(arg,_) | P.TupleGet(arg, _) when arg |> isReduced -> true //TupleGet here helps TupleLet expressions reduce correctly
     | _ -> false

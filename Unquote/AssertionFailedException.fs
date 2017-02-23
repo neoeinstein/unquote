@@ -1,7 +1,9 @@
 ﻿namespace Swensen.Unquote
 
 open System
+#if !PORTABLE
 open System.Runtime.Serialization
+#endif
 
 ///Exception used to signal assertion failure to be caught by any exception framework
 ///(used when not NUnit or xUnit.net or when compiled for framework versions lacking serialization features)
